@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Chat Summariser</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Chat Summariser</h1>
+    <form method="POST">
+      <textarea name="chat" placeholder="Paste your chat here..." required>{{ request.form.chat or '' }}</textarea>
+      <button type="submit">Summarise Chat</button>
+    </form>
+
+    {% if summary %}
+      <div class="result">
+        <h2>Summary:</h2>
+        <p>{{ summary }}</p>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
